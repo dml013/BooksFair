@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BooksFair.DataAccess\BooksFair.DataAccess.csproj" />
+    <ProjectReference Include="..\BooksFair.Models\BooksFair.Models.csproj" />
+    <ProjectReference Include="..\BooksFair.Utility\BooksFair.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
