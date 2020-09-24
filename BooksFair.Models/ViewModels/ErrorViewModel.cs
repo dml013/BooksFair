@@ -1,6 +1,6 @@
 using System;
 
-namespace BooksFair.Models {
+namespace BooksFair.Models.ViewModels {
     public class ErrorViewModel {
         public string RequestId { get; set; }
 
