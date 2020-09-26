@@ -19,14 +19,16 @@ namespace BooksFair {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            services.AddDbContext<ApplicationDbContext>(options => 
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("BooksFair.DataAccess")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -53,13 +55,17 @@ namespace BooksFair {
                 endpoints.MapAreaControllerRoute("defaultArea", "customer", "/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                //pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{area}/{controller}/{action}/{id?}",
+                defaults: new { area = "Customer", controller = "Home", action = "Index" }
+                );
+                endpoints.MapControllerRoute(
+                  name: "default",
+                pattern: "/test/del/{id?}",
+                 defaults: new { area = "Admin", controller = "Category", action = "Delete" }
+                );                              
+
                 //pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-                //endpoints.MapControllerRoute(
-                //    name: "defaultAdmin",
-                //    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
-
 
                 //endpoints.Map("/home/privacy", async context => {
                 //    await context.Response.WriteAsync("Hello World!");

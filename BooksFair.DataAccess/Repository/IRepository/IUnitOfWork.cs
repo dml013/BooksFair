@@ -6,5 +6,7 @@ namespace BooksFair.DataAccess.Repository.IRepository {
     public interface IUnitOfWork : IDisposable {
         ICategoryRepository Category { get; }
         ISPCall SPCall { get; }
+
+        void Save();
     }
 }

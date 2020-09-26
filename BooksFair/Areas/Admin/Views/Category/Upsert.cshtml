@@ -1,0 +1,40 @@
+﻿@model Category
+@{
+    ViewData["Title"] = Model.Id != 0 ? "Edit Category" : "Create Category";
+}
+
+<form method="post">
+    <div class="row p-3 border">
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@ViewData["Title"]</h2>
+            <div class="col-8 pt-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                        @*<span asp-validation-for="Name" class="invalid-tooltip"></span>*@
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-8 offset-4">
+                        @if ( Model.Id != 0 ) {
+                            <partial name="/Views/Shared/_EditAndBackToListButton.cshtml" model="Model.Id" />
+                            @*@await Html.PartialAsync("/Views/Shared/_EditAndBackToListButton.cshtml", Model.Id)*@
+                        } else {
+                            <partial name="/Views/Shared/_CreateAndBackToListButton.cshtml" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
