@@ -196,3 +196,8 @@ body {
   width: 210px !important;
   margin: 0 auto;
 }
+
+form .buttons-group-create-back button,
+form .buttons-group-create-back a {
+    width: 100%;
+}

@@ -1,8 +1,8 @@
-﻿@model Category
+﻿@model CoverType
 @{
-    ViewData["Title"] = Model.Id != 0 ? "Edit Category" : "Create Category";
+    ViewData["Title"] = Model.Id != 0 ? "Edit Cover type" : "Create Cover type";
 }
-@*was-validated*@
+
 <form method="post" class="needs-validation">
     <div class="row p-3 border">
         <div class="col-12 border-bottom">
@@ -11,14 +11,12 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <div class="row form-group">
-                    <div class="col-4 font-weight-bold">
+                    <div class="col-4 font-weight-bold ">
                         <label asp-for="Name" class="col-form-label col-form-label-sm"></label>
-                        @*<label asp-for="Name" class="col-form-label col-form-label-sm"></label>*@
                     </div>
                     <div class="col-8">
                         <input asp-for="Name" class="form-control" required/>
                         <span asp-validation-for="Name" class="invalid-tooltip"></span>
-                        @*<span asp-validation-for="Name" class="text-danger"></span>*@
                     </div>
                 </div>
                 <div class="row mt-5 mb-3">
