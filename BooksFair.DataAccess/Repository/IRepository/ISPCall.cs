@@ -14,7 +14,7 @@ namespace BooksFair.DataAccess.Repository.IRepository {
         /// <returns>Single parametr</returns>
         T Single<T>(string procedureName, DynamicParameters param = null);
 
-        void Execute(string procedureName, DynamicParameters param = null);
+        void Execute(string procedureName, object param = null);
 
         /// <summary>
         /// Returne one row

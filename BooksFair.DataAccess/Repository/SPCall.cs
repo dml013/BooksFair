@@ -19,7 +19,8 @@ namespace BooksFair.DataAccess.Repository {
             connectionString = db.Database.GetDbConnection().ConnectionString;
         }
 
-        public void Execute(string procedureName, DynamicParameters param = null) {
+        //public void Execute(string procedureName, DynamicParameters param = null) {
+        public void Execute(string procedureName, object param = null) {
             using ( SqlConnection sqlCon = new SqlConnection(connectionString) ) {
                 sqlCon.Open();
                 sqlCon.Execute(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
