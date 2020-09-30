@@ -15,6 +15,7 @@ namespace BooksFair.DataAccess.Repository {
             _db = db;
             Category = new CategoryRepository(_db);
             CoverType = new CoverTypeRepository(_db);
+            Product = new ProductRepository(_db);
             SPCall = new SPCall(_db);
         }
         public ISPCall SPCall { get; private set; }
@@ -22,6 +23,8 @@ namespace BooksFair.DataAccess.Repository {
         public ICategoryRepository Category  {get; private set;}
 
         public ICoverTypeRepository CoverType { get; private set; }
+
+        public IProductRepository Product { get; private set; }
 
         public void Save() {
             try {
