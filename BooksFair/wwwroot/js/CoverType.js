@@ -1,6 +1,6 @@
 ﻿var dataTable;
 var getAll = "/Admin/CoverType/GetAll";
-var apiDel = "CoverType/Delete/"; //скорее всего надо добавить area
+var apiDel = "CoverType/Delete/";
 var apiUpsert = "CoverType/Upsert/";
 
 $(loadDataTable(), deleteRow(dataTable, apiDel));

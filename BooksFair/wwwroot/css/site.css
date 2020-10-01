@@ -199,5 +199,33 @@ body {
 
 form .buttons-group-create-back button,
 form .buttons-group-create-back a {
-    width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .navbar-expand-sm {
+    position: fixed !important;
+    top: 0;
+    z-index: 5;
+    border: 0;
+    background-color: rgba(0, 136, 204, 0.8) !important;
+    outline-width: 0;
+    border-bottom: 0 !important;
+    border-bottom-right-radius: 5px;
+  }
+  .navbar-expand-sm .container {
+    outline-width: 0;
+  }
+  .navbar-expand-sm .h6 {
+    font-size: 1.1rem !important;
+  }
+  .dropdown-item {
+    font-size: 1rem !important;
+  }
+  .dropdown-menu {
+    background-color: rgba(0, 136, 204, 0.2) !important;
+  }
+  .navbar-brand {
+    display: none;
+  }
 }
