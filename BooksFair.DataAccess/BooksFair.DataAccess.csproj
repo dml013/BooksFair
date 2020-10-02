@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20200928154428_AddProductToDb.Designer.cs" />
     <Compile Remove="Migrations\20200928154938_AddProductToDb.cs" />
     <Compile Remove="Migrations\20200928154938_AddProductToDb.Designer.cs" />
+    <Compile Remove="Migrations\20201001234145_AddCompanyToDb.cs" />
+    <Compile Remove="Migrations\20201001234145_AddCompanyToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

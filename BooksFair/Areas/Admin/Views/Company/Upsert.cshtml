@@ -1,0 +1,91 @@
+﻿@model Company
+@{
+    ViewData["Title"] = Model.Id != 0 ? "Edit Company" : "Create Company";
+}
+@*was-validated*@
+<form method="post" id="formValid" class="needs-validation">
+    <div class="row p-3 border">
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@ViewData["Title"]</h2>
+            <div class="pt-4 col-sm-12 col-md-9 col-lg-8">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="Name" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" required />
+                        <span asp-validation-for="Name" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="StreetAddress" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="StreetAddress" class="form-control"  />
+                        <span asp-validation-for="StreetAddress" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="City" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="City" class="form-control"  />
+                        <span asp-validation-for="City" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="State" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="State" class="form-control"></input>
+                        <span asp-validation-for="State" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="PostalCode" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PostalCode" class="form-control" />
+                        <span asp-validation-for="PostalCode" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="PhoneNumber" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="tel" asp-for="PhoneNumber" class="form-control"/>
+                        <span asp-validation-for="PhoneNumber" class="invalid-feedback"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4 font-weight-bold">
+                        <label asp-for="IsAuthorizedCompany" class="col-form-label col-form-label-sm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="checkbox" asp-for="IsAuthorizedCompany" class=""/>
+                        <span asp-validation-for="IsAuthorizedCompany" class="invalid-feedback"></span>
+                    </div>
+                </div>               
+                    <div class="col-8 offset-4">
+                        @if ( Model.Id != 0 ) {
+                            <partial name="/Views/Shared/_EditAndBackToListButton.cshtml" model="Model.Id" />
+                        } else {
+                            <partial name="/Views/Shared/_CreateAndBackToListButton.cshtml" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

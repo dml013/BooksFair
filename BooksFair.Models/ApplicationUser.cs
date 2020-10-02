@@ -17,5 +17,7 @@ namespace BooksFair.Models {
 
         [NotMapped] //don't adding to db
         public string Role { get; set; }
+        public Company Company { get; set; }
+        public int? CompanyId { get; set; }
     }
 }
