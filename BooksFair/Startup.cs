@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BooksFair.DataAccess.Repository.IRepository;
 using BooksFair.DataAccess.Repository;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using BooksFair.Utility;
 
 namespace BooksFair {
     public class Startup {
@@ -24,12 +26,18 @@ namespace BooksFair {
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("BooksFair.DataAccess")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>(); 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                //.AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddSingleton<IEmailSender, EmailSender>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews();
+
             services.AddRazorPages();
         }
 
